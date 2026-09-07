@@ -194,6 +194,22 @@
       overflow: hidden;
       margin-bottom: 12px;
       background: #14141a; 
+      position: relative;
+    }
+
+    .product-brand-tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(5, 5, 7, 0.85);
+      border: 1px solid var(--neon-cyan);
+      color: var(--neon-cyan);
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      z-index: 2;
     }
 
     .product-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
@@ -293,6 +309,50 @@
       image-rendering: pixelated; 
     }
 
+    .moto-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .moto-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .moto-card:hover, .moto-card.selected {
+      border-color: var(--neon-cyan);
+      background: rgba(0, 240, 255, 0.08);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    }
+
+    .moto-card h4 {
+      font-family: var(--font-agressive);
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .moto-card p {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .moto-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      border-radius: 3px;
+      margin-top: 6px;
+      text-transform: uppercase;
+    }
+
     .game-controls { margin-top: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
     .game-btn { padding: 12px 20px; background: var(--neon-pink); border: none; color: white; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 4px; cursor: pointer; touch-action: manipulation; }
 
@@ -328,8 +388,8 @@
 
   <header>
     <div class="header-brand">
-      <img src="https://cdn.discordapp.com/attachments/1110676093914075147/1546501321996378285/logo_toletumbikelife.jpeg?ex=6aa00317&is=6a9eb197&hm=5fcd9fdc4faf9589b36ad4c243928295b992ca2a5a0c4d58fa6d3ad48fcaef04&" class="header-logo-img" alt="Logo Toletum Bikelife">
-      <div class="brand-logo-text">TOLETUM BIKELIFE</div>
+      <img src="https://cdn.discordapp.com/attachments/1110676093914075147/1546501321996378285/logo_toletumbikelife.jpeg?ex=6aa00317&is=6a9eb197&hm=5fcd9fdc4faf9589b36ad4c243928295b992ca2a5a0c4d58fa6d3ad48fcaef04&" class="header-logo-img" alt="Logo TOLETUM BIKELIFE®">
+      <div class="brand-logo-text">TOLETUM BIKELIFE®</div>
     </div>
     <nav>
       <a href="#hero">Inicio</a>
@@ -344,10 +404,10 @@
 
   <section class="hero" id="hero">
     <div class="hero-image-wrapper">
-      <img src="https://cdn.discordapp.com/attachments/1110676093914075147/1546501321996378285/logo_toletumbikelife.jpeg?ex=6aa00317&is=6a9eb197&hm=5fcd9fdc4faf9589b36ad4c243928295b992ca2a5a0c4d58fa6d3ad48fcaef04&" alt="Toletum Bikelife Action">
+      <img src="https://cdn.discordapp.com/attachments/1110676093914075147/1546501321996378285/logo_toletumbikelife.jpeg?ex=6aa00317&is=6a9eb197&hm=5fcd9fdc4faf9589b36ad4c243928295b992ca2a5a0c4d58fa6d3ad48fcaef04&" alt="TOLETUM BIKELIFE® Action">
     </div>
 
-    <h1 class="hero-title-aggressive">TOLETUM BIKELIFE</h1>
+    <h1 class="hero-title-aggressive">TOLETUM BIKELIFE®</h1>
     <p class="hero-subtitle">Streetwear oficial y juego arcade por niveles en Toledo.</p>
     <a href="#tienda" class="btn-primary">VER TIENDA</a>
   </section>
@@ -359,13 +419,13 @@
   </div>
 
   <section class="shop-section seccion-transicion" id="tienda">
-    <div class="badge-destacado">Colección 2026</div>
+    <div class="badge-destacado">Colección 2026 | TOLETUM BIKELIFE®</div>
     <h2 class="titulo-ropa">Streetwear Exclusivo</h2>
     <div class="product-grid" id="productGrid"></div>
   </section>
 
   <section class="tiktok-section seccion-transicion" id="tiktok">
-    <h2 style="font-family: var(--font-agressive); font-size: 2.2rem; text-transform: uppercase; color: var(--neon-cyan);">Vídeos & Stunts de TikTok</h2>
+    <h2 style="font-family: var(--font-agressive); font-size: 2.2rem; text-transform: uppercase; color: var(--neon-cyan);">Vídeos & Stunts de TikTok | TOLETUM BIKELIFE®</h2>
     <p style="color: var(--text-muted); margin-top: 5px;">Sigue nuestras últimas maniobras e historias oficiales directamente desde TikTok.</p>
     <div class="tiktok-grid" id="tiktokGrid"></div>
   </section>
@@ -376,11 +436,11 @@
 
   <div class="checkout-modal" id="checkoutModal">
     <div class="checkout-card">
-      <h3 style="font-family: var(--font-agressive); font-size: 1.6rem; margin-bottom: 12px;">FINALIZAR PEDIDO</h3>
+      <h3 style="font-family: var(--font-agressive); font-size: 1.6rem; margin-bottom: 12px; color: var(--neon-cyan);">FINALIZAR PEDIDO | TOLETUM BIKELIFE®</h3>
       <p id="checkoutProductInfo" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;"></p>
       
       <div class="policy-box">
-        <strong>AVISO IMPORTANTE:</strong> Por política interna de la marca y de acuerdo con nuestras condiciones de venta, <strong>NO SE REALIZAN DEVOLUCIONES DE DINERO</strong> bajo ningún concepto una vez procesado el pedido.
+        <strong>AVISO IMPORTANTE:</strong> Por política interna de TOLETUM BIKELIFE® y de acuerdo con nuestras condiciones de venta, <strong>NO SE REALIZAN DEVOLUCIONES DE DINERO</strong> bajo ningún concepto una vez procesado el pedido.
       </div>
 
       <form onsubmit="processOrder(event)">
@@ -419,7 +479,7 @@
 
   <div class="admin-modal" id="loginModal">
     <div class="checkout-card" style="max-width: 400px;">
-      <h3 style="font-family: var(--font-agressive); font-size: 1.6rem; margin-bottom: 12px; color: var(--neon-cyan);">PANEL CREADORES</h3>
+      <h3 style="font-family: var(--font-agressive); font-size: 1.6rem; margin-bottom: 12px; color: var(--neon-cyan);">PANEL CREADORES | TOLETUM BIKELIFE®</h3>
       <form onsubmit="handleLogin(event)">
         <div class="form-group">
           <label>Usuario</label>
@@ -439,7 +499,7 @@
     <div class="admin-card">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
         <div>
-          <h3 style="font-family: var(--font-agressive); font-size: 1.8rem; color: var(--neon-cyan); display: inline-block;">PANEL DE CONTROL</h3>
+          <h3 style="font-family: var(--font-agressive); font-size: 1.8rem; color: var(--neon-cyan); display: inline-block;">PANEL DE CONTROL TOLETUM BIKELIFE®</h3>
           <span id="currentAdminBadge" style="font-size: 0.75rem; color: var(--neon-pink); margin-left: 10px; font-weight: bold;"></span>
         </div>
         <button onclick="closeAdminPanel()" style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">&times;</button>
@@ -476,7 +536,7 @@
       </div>
 
       <div id="tabAdd" style="display: none;">
-        <h4 style="margin-bottom: 12px;">Añadir Nuevo Producto a la Web</h4>
+        <h4 style="margin-bottom: 12px;">Añadir Nuevo Producto TOLETUM BIKELIFE®</h4>
         <form onsubmit="handleAddNewProduct(event)">
           <div class="form-group">
             <label>Nombre del Producto</label>
@@ -557,9 +617,11 @@
           <div class="form-group">
             <label>Nivel Inicial del Juego</label>
             <select id="cfgGameStartLevel">
-              <option value="1">Nivel 1 - Policía Local</option>
-              <option value="2">Nivel 2 - Policía Nacional (UPR)</option>
-              <option value="3">Nivel 3 - Guardia Civil (GAR)</option>
+              <option value="1">Nivel 1 - Policia Local</option>
+              <option value="2">Nivel 2 - Policia Nacional (UPR)</option>
+              <option value="3">Nivel 3 - Guardia Civil (Tráfico)</option>
+              <option value="4">Nivel 4 - GAR / Night Storm</option>
+              <option value="5">Nivel 5 - Helicóptero PEGASO</option>
             </select>
           </div>
           <div class="form-group">
@@ -662,10 +724,13 @@
   </div>
 
   <section class="game-section seccion-transicion" id="game">
-    <h2 style="font-family: var(--font-agressive); font-size: clamp(1.8rem, 5vw, 2.8rem); text-transform: uppercase;">PERSECUCIÓN TOLEDO HARDCORE</h2>
-    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;" id="gameSubHeader">Supera los 3 niveles para desbloquear la victoria y el descuento.</p>
+    <h2 style="font-family: var(--font-agressive); font-size: clamp(1.8rem, 5vw, 2.8rem); text-transform: uppercase;">PERSECUCIÓN TOLEDO HARDCORE | TOLETUM BIKELIFE®</h2>
+    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;" id="gameSubHeader">Supera los 5 niveles para desbloquear la victoria y el descuento.</p>
 
     <div class="game-container">
+      <h3 style="font-family: var(--font-agressive); color: var(--neon-cyan); margin-bottom: 10px; text-transform: uppercase; font-size: 1rem;">1. Selecciona tu Moto de Cross Real:</h3>
+      <div class="moto-selector" id="motoSelectorContainer"></div>
+
       <canvas id="gameCanvas" width="800" height="380"></canvas>
       <button class="touch-action-btn" id="mobileTouchBtn">¡MANTÉN PRESIONADO PARA WHEELIE!</button>
       <div class="game-controls">
@@ -676,13 +741,75 @@
   </section>
 
   <footer>
-    <div>&copy; 2026 TOLETUM BIKELIFE. Todos los derechos reservados. Streetwear Bikelife en Toledo.</div>
+    <div>&copy; 2026 TOLETUM BIKELIFE®. Todos los derechos reservados. Streetwear Bikelife en Toledo.</div>
     <div style="display:flex; gap:10px; align-items:center;">
       <a href="https://instagram.com/tu_usuario" target="_blank" class="social-btn ig" id="footerIgLink">Instagram</a>
       <a href="https://tiktok.com/@tu_usuario" target="_blank" class="social-btn tt" id="footerTtLink">TikTok</a>
       <a href="#" class="admin-link" onclick="openLoginModal(event)">Acceso Creadores</a>
     </div>
   </footer>
+
+  <!-- INTEGRACIÓN REALTIME DATABASE CON FIREBASE V10 -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, push, onValue, update, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBhiOsGxKzL5v-bXfhZPQnX8JipT7gn6Hk",
+      authDomain: "toletumbikelife.firebaseapp.com",
+      databaseURL: "https://toletumbikelife-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "toletumbikelife",
+      storageBucket: "toletumbikelife.firebasestorage.app",
+      messagingSenderId: "836000009144",
+      appId: "1:836000009144:web:f8fb713ca560a190b6dd4d"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // Método global para guardar pedido en Firebase
+    window.guardarPedidoEnFirebase = function(pedidoObj) {
+      const pedidosRef = ref(db, 'pedidos');
+      return push(pedidosRef, pedidoObj);
+    };
+
+    // Método global para actualizar un pedido en Firebase por su Key
+    window.actualizarPedidoEnFirebase = function(firebaseKey, datosActualizados) {
+      const pedidoRef = ref(db, 'pedidos/' + firebaseKey);
+      return update(pedidoRef, datosActualizados);
+    };
+
+    // Método global para borrar pedido de Firebase
+    window.borrarPedidoEnFirebase = function(firebaseKey) {
+      const pedidoRef = ref(db, 'pedidos/' + firebaseKey);
+      return remove(pedidoRef);
+    };
+
+    // Suscripción en tiempo real a los pedidos de Firebase Realtime Database
+    const pedidosRef = ref(db, 'pedidos');
+    onValue(pedidosRef, (snapshot) => {
+      const data = snapshot.val();
+      const listaPed = [];
+      if (data) {
+        Object.keys(data).forEach(key => {
+          listaPed.push({
+            firebaseKey: key,
+            ...data[key]
+          });
+        });
+      }
+      
+      // Actualizamos la variable global de la app con los pedidos sincronizados
+      window.ordersList = listaPed;
+      localStorage.setItem('tlt_orders', JSON.stringify(listaPed));
+
+      // Si el panel de administración está abierto en la pestaña 'orders', re-renderizamos la tabla al instante
+      const tabOrdersDiv = document.getElementById('tabOrders');
+      if (tabOrdersDiv && tabOrdersDiv.style.display !== 'none' && typeof window.renderAdminOrders === 'function') {
+        window.renderAdminOrders();
+      }
+    });
+  </script>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -699,7 +826,7 @@
     });
 
     const CONFIG_TIENDA = {
-      emailPedidos: "tuemailpedidos@gmail.com",
+      emailPedidos: "ignaseo10@gmail.com",
       numeroBizum: "+34 600 000 000",
       linkPayPal: "https://paypal.me/tuUsuarioPayPal",
       instagramUrl: "https://www.instagram.com/toletum_bikelife/",
@@ -725,16 +852,16 @@
         name: "Pasamontañas Bikelife TLT Black Out",
         price: 24.99,
         stock: 5,
-        image: "https://TU-LINK-AQUI-DEL-PASAMONTANAS.jpg",
-        desc: "Pasamontañas térmico para rodadas con bordado reflectante Toletum Bikelife."
+        image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500&q=80",
+        desc: "Pasamontañas térmico para rodadas con bordado reflectante TOLETUM BIKELIFE®."
       },
       {
         id: 2,
         name: "Sudadera Heavyweight Wheelie King",
         price: 59.99,
         stock: 2,
-        image: "https://TU-LINK-AQUI-DE-LA-SUDADERA.jpg",
-        desc: "Sudadera 450GSM resistente al aire. Diseño bikelife urbano de Toledo."
+        image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500&q=80",
+        desc: "Sudadera 450GSM resistente al aire. Diseño bikelife urbano TOLETUM BIKELIFE® de Toledo."
       }
     ];
 
@@ -750,10 +877,121 @@
       status: 'disabled',
       title: 'Pack Exclusive Toletum Streetwear',
       endTime: 0,
-      desc: '¡Sorteamos un pack exclusivo bikelife con sudadera y pasamontañas oficial!'
+      desc: '¡Sorteamos un pack exclusivo bikelife con sudadera y pasamontañas oficial TOLETUM BIKELIFE®!'
     };
     let giveawayParticipants = JSON.parse(localStorage.getItem('tlt_gw_participants')) || [];
-    let ordersList = JSON.parse(localStorage.getItem('tlt_orders')) || [];
+    window.ordersList = JSON.parse(localStorage.getItem('tlt_orders')) || [];
+
+    const realCrossBikes = [
+      {
+        id: 'yamaha_yz',
+        name: 'Yamaha YZ250F',
+        brand: 'Yamaha',
+        color: '#0055ff',
+        lift: 0.85,
+        drop: 1.1,
+        maxAngle: 75,
+        desc: 'Equilibrada. Chasis estable e ideal para caballitos largos.',
+        tag: 'Control Top',
+        tagColor: '#0055ff'
+      },
+      {
+        id: 'ktm_sx',
+        name: 'KTM 450 SX-F',
+        brand: 'KTM',
+        color: '#ff6600',
+        lift: 1.05,
+        drop: 1.0,
+        maxAngle: 80,
+        desc: 'Potencia salvaje. Levanta rapidísimo pero exige precisión.',
+        tag: 'Aceleración',
+        tagColor: '#ff6600'
+      },
+      {
+        id: 'honda_crf',
+        name: 'Honda CRF450R',
+        brand: 'Honda',
+        color: '#ff0022',
+        lift: 0.8,
+        drop: 0.9,
+        maxAngle: 78,
+        desc: 'Motor legendario. Muy noble al bajar el frente.',
+        tag: 'Resistencia',
+        tagColor: '#ff0022'
+      },
+      {
+        id: 'husqvarna_fc',
+        name: 'Husqvarna FC 250',
+        brand: 'Husqvarna',
+        color: '#00f0ff',
+        lift: 0.9,
+        drop: 1.05,
+        maxAngle: 82,
+        desc: 'Tecnología sueca. Mayor ángulo de recuperación de voltereta.',
+        tag: 'Estabilidad',
+        tagColor: '#00f0ff'
+      },
+      {
+        id: 'kawasaki_kx',
+        name: 'Kawasaki KX250',
+        brand: 'Kawasaki',
+        color: '#22c55e',
+        lift: 0.95,
+        drop: 1.0,
+        maxAngle: 79,
+        desc: 'Verde rabioso. Respuesta de acelerador inmediata.',
+        tag: 'Agilidad',
+        tagColor: '#22c55e'
+      },
+      {
+        id: 'gasgas_mc',
+        name: 'GasGas MC 250F',
+        brand: 'GasGas',
+        color: '#ef4444',
+        lift: 1.0,
+        drop: 1.02,
+        maxAngle: 81,
+        desc: 'Carácter latino. Elevación agresiva para expertos.',
+        tag: 'Explosiva',
+        tagColor: '#ef4444'
+      },
+      {
+        id: 'sherco_se',
+        name: 'Sherco SE 300',
+        brand: 'Sherco',
+        color: '#3b82f6',
+        lift: 0.88,
+        drop: 0.95,
+        maxAngle: 83,
+        desc: 'Enduro puro. Excelente margen de seguridad en ángulo.',
+        tag: 'Precisión',
+        tagColor: '#3b82f6'
+      }
+    ];
+
+    let selectedBike = realCrossBikes[0];
+
+    function renderMotoSelector() {
+      const container = document.getElementById('motoSelectorContainer');
+      container.innerHTML = '';
+      realCrossBikes.forEach(bike => {
+        const isSel = bike.id === selectedBike.id;
+        const card = document.createElement('div');
+        card.className = `moto-card ${isSel ? 'selected' : ''}`;
+        card.onclick = () => {
+          selectedBike = bike;
+          renderMotoSelector();
+        };
+        card.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h4>${bike.name}</h4>
+            <span class="moto-badge" style="background:${bike.tagColor}; color:#fff;">${bike.tag}</span>
+          </div>
+          <p>${bike.desc}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
 
     function initSocialLinks() {
       document.getElementById('headerIgLink').href = CONFIG_TIENDA.instagramUrl;
@@ -764,7 +1002,7 @@
 
     function saveToLocalStorage() {
       localStorage.setItem('tlt_products', JSON.stringify(products));
-      localStorage.setItem('tlt_orders', JSON.stringify(ordersList));
+      localStorage.setItem('tlt_orders', JSON.stringify(window.ordersList));
       localStorage.setItem('tlt_game_config', JSON.stringify(gameConfig));
       localStorage.setItem('tlt_giveaway', JSON.stringify(giveawayData));
       localStorage.setItem('tlt_gw_participants', JSON.stringify(giveawayParticipants));
@@ -806,6 +1044,7 @@
         card.className = 'product-card';
         card.innerHTML = `
           <div class="product-image-container">
+            <span class="product-brand-tag">TOLETUM BIKELIFE®</span>
             <img src="${p.image}" class="product-img" alt="${p.name}">
           </div>
           <div class="product-info">
@@ -898,7 +1137,10 @@
 
       const now = Date.now();
       if (giveawayData.status === 'disabled' || !giveawayData.endTime || now >= giveawayData.endTime) {
-        if (timerInterval) clearInterval(timerInterval);
+        if (timerInterval) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+        }
         section.style.display = 'none';
         navLink.style.display = 'none';
         if (giveawayData.status === 'active' && now >= giveawayData.endTime) {
@@ -911,14 +1153,20 @@
       section.style.display = 'block';
       navLink.style.display = 'inline-block';
 
-      if (timerInterval) clearInterval(timerInterval);
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
 
       function updateCountdown() {
         const current = Date.now();
         const diff = giveawayData.endTime - current;
 
         if (diff <= 0) {
-          clearInterval(timerInterval);
+          if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+          }
           giveawayData.status = 'disabled';
           saveToLocalStorage();
           section.style.display = 'none';
@@ -931,7 +1179,7 @@
         const secs = Math.floor((diff % (1000 * 60)) / 1000);
 
         card.innerHTML = `
-          <h2 style="font-family: var(--font-agressive); font-size: 1.8rem; color: var(--neon-pink); text-transform: uppercase;">SORTEO EXCLUSIVO</h2>
+          <h2 style="font-family: var(--font-agressive); font-size: 1.8rem; color: var(--neon-pink); text-transform: uppercase;">SORTEO EXCLUSIVO | TOLETUM BIKELIFE®</h2>
           <h3 style="font-size: 1.2rem; margin-top: 8px;">${giveawayData.title}</h3>
           <p style="color: var(--text-muted); margin: 8px 0; font-size:0.85rem;">${giveawayData.desc}</p>
           <div style="background: #000; border: 1px solid var(--neon-pink); display: inline-block; padding: 8px 16px; border-radius: 6px; margin: 12px 0;">
@@ -957,7 +1205,7 @@
 
       giveawayParticipants.push({ email: email, date: new Date().toLocaleDateString() });
       saveToLocalStorage();
-      alert("¡Te has inscrito correctamente en el sorteo!");
+      alert("¡Te has inscrito correctamente en el sorteo de TOLETUM BIKELIFE®!");
       document.getElementById('gwUserEmail').value = '';
     }
 
@@ -972,7 +1220,7 @@
     }
     function closeCheckout() { document.getElementById('checkoutModal').style.display = 'none'; }
 
-    function processOrder(e) {
+    async function processOrder(e) {
       e.preventDefault();
       const prod = products.find(p => p.id === selectedProductId);
       if(!prod || prod.stock <= 0) {
@@ -988,8 +1236,9 @@
 
       prod.stock -= 1;
 
+      const orderId = 'PED-' + Math.floor(1000 + Math.random() * 9000);
       const newOrder = {
-        id: 'PED-' + Math.floor(1000 + Math.random() * 9000),
+        id: orderId,
         productName: prod.name,
         price: prod.price,
         customerName: name,
@@ -1001,19 +1250,46 @@
         status: 'Pedido',
         date: new Date().toLocaleDateString()
       };
-      ordersList.push(newOrder);
 
-      saveToLocalStorage();
+      // Envío a Firebase Realtime Database
+      if (typeof window.guardarPedidoEnFirebase === 'function') {
+        window.guardarPedidoEnFirebase(newOrder);
+      } else {
+        window.ordersList.push(newOrder);
+        saveToLocalStorage();
+      }
+
       renderProducts();
 
-      const bodyText = `NUEVO PEDIDO%0D%0AItem: ${prod.name}%0D%0APrecio: ${prod.price}€%0D%0ACliente: ${name}%0D%0AEmail: ${email}%0D%0AEntrega: ${delivery}%0D%0ADirección: ${address}%0D%0APago: ${payment}`;
-      window.location.href = `mailto:${CONFIG_TIENDA.emailPedidos}?subject=Pedido ${encodeURIComponent(name)}&body=${bodyText}`;
+      const formData = new FormData();
+      formData.append("_subject", `¡NUEVO PEDIDO TOLETUM BIKELIFE®! ID: ${orderId}`);
+      formData.append("ID Pedido", orderId);
+      formData.append("Producto", prod.name);
+      formData.append("Precio (€)", `${prod.price} €`);
+      formData.append("Cliente", name);
+      formData.append("Email Cliente", email);
+      formData.append("Tipo Entrega", delivery);
+      formData.append("Direccion", address || "Entrega en mano / No requerida");
+      formData.append("Metodo Pago", payment);
+      formData.append("Fecha", newOrder.date);
+      formData.append("_captcha", "false");
 
-      setTimeout(() => {
-        if (payment === 'Bizum') alert(`Realiza el Bizum de ${prod.price}€ a: ${CONFIG_TIENDA.numeroBizum}`);
-        else window.open(CONFIG_TIENDA.linkPayPal, '_blank');
-        closeCheckout();
-      }, 500);
+      try {
+        await fetch(`https://formsubmit.co/ajax/${CONFIG_TIENDA.emailPedidos}`, {
+          method: "POST",
+          body: formData
+        });
+      } catch (err) {
+        const bodyText = `NUEVO PEDIDO TOLETUM BIKELIFE®%0D%0AID: ${orderId}%0D%0AItem: ${prod.name}%0D%0APrecio: ${prod.price}€%0D%0ACliente: ${name}%0D%0AEmail: ${email}%0D%0AEntrega: ${delivery}%0D%0ADirección: ${address}%0D%0APago: ${payment}`;
+        window.location.href = `mailto:${CONFIG_TIENDA.emailPedidos}?subject=Pedido ${encodeURIComponent(name)}&body=${bodyText}`;
+      }
+
+      alert("¡Pedido realizado con éxito! Se ha registrado en el sistema y enviado una notificación a ignaseo10@gmail.com.");
+
+      if (payment === 'Bizum') alert(`Realiza el Bizum de ${prod.price}€ a: ${CONFIG_TIENDA.numeroBizum}`);
+      else window.open(CONFIG_TIENDA.linkPayPal, '_blank');
+
+      closeCheckout();
     }
 
     function openLoginModal(e) {
@@ -1076,7 +1352,7 @@
     }
 
     function switchAdminTab(tab) {
-      if (!currentLoggedInAdmin.permissions.includes(tab)) {
+      if (!currentLoggedInAdmin || !currentLoggedInAdmin.permissions.includes(tab)) {
         alert("No tienes permiso para acceder a esta sección.");
         return;
       }
@@ -1159,14 +1435,14 @@
       });
     }
 
-    function renderAdminOrders() {
+    window.renderAdminOrders = function() {
       const tbody = document.getElementById('ordersTableBody');
       tbody.innerHTML = '';
-      if(ordersList.length === 0) {
+      if(!window.ordersList || window.ordersList.length === 0) {
         tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; color: var(--text-muted);">No hay pedidos en la lista.</td></tr>';
         return;
       }
-      ordersList.forEach((o, index) => {
+      window.ordersList.forEach((o, index) => {
         let statusClass = 'status-pedido';
         if (o.status === 'En Ejecución') statusClass = 'status-ejecucion';
         if (o.status === 'Finalizado' || o.status === 'Terminado') statusClass = 'status-finalizado';
@@ -1191,10 +1467,10 @@
           </tr>
         `;
       });
-    }
+    };
 
     function viewOrderDetail(index) {
-      const o = ordersList[index];
+      const o = window.ordersList[index];
       
       const detailModal = document.createElement('div');
       detailModal.id = 'orderDetailModal';
@@ -1224,10 +1500,17 @@
     }
 
     function togglePaymentStatus(index) {
-      ordersList[index].paid = !ordersList[index].paid;
-      saveToLocalStorage();
+      const o = window.ordersList[index];
+      const newPaid = !o.paid;
+
+      if (o.firebaseKey && typeof window.actualizarPedidoEnFirebase === 'function') {
+        window.actualizarPedidoEnFirebase(o.firebaseKey, { paid: newPaid });
+      } else {
+        o.paid = newPaid;
+        saveToLocalStorage();
+        renderAdminOrders();
+      }
       closeOrderDetail();
-      renderAdminOrders();
     }
 
     function closeOrderDetail() {
@@ -1236,16 +1519,28 @@
     }
 
     function setOrderStatus(index, newStatus) {
-      ordersList[index].status = newStatus;
-      saveToLocalStorage();
-      renderAdminOrders();
+      const o = window.ordersList[index];
+
+      if (o.firebaseKey && typeof window.actualizarPedidoEnFirebase === 'function') {
+        window.actualizarPedidoEnFirebase(o.firebaseKey, { status: newStatus });
+      } else {
+        o.status = newStatus;
+        saveToLocalStorage();
+        renderAdminOrders();
+      }
     }
 
     function deleteOrder(index) {
       if (confirm("¿Seguro que deseas eliminar este pedido del historial?")) {
-        ordersList.splice(index, 1);
-        saveToLocalStorage();
-        renderAdminOrders();
+        const o = window.ordersList[index];
+
+        if (o.firebaseKey && typeof window.borrarPedidoEnFirebase === 'function') {
+          window.borrarPedidoEnFirebase(o.firebaseKey);
+        } else {
+          window.ordersList.splice(index, 1);
+          saveToLocalStorage();
+          renderAdminOrders();
+        }
       }
     }
 
@@ -1350,11 +1645,11 @@
       saveToLocalStorage();
       checkGameVisibility();
       updateGameUI();
-      alert("¡Configuración del juego y nivel actualizadas correctamente!");
+      alert("¡Configuración del juego y niveles actualizada!");
     }
 
     function updateGameUI() {
-      document.getElementById('gameSubHeader').textContent = `Supera los 3 niveles para desbloquear la victoria y el ${gameConfig.discountPercent}% de descuento.`;
+      document.getElementById('gameSubHeader').textContent = `Supera los 5 niveles para desbloquear la victoria y el ${gameConfig.discountPercent}% de descuento.`;
     }
 
     function loadGiveawayToAdmin() {
@@ -1397,6 +1692,7 @@
       alert(status === 'active' ? `¡Sorteo activado durante ${hours} horas!` : "Sorteo desactivado u oculto.");
     }
 
+    renderMotoSelector();
     initSocialLinks();
     renderProducts();
     renderTiktokVideos();
@@ -1440,7 +1736,6 @@
     }
     scheduleBgBike();
 
-    /* MOTOR DEL JUEGO Y DISTANCIA POLICIAL AUMENTADA */
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
     const startBtn = document.getElementById('startBtn');
@@ -1452,7 +1747,6 @@
     let isPressing = false;
     let animationFrameId = null;
     
-    /* DISTANCIA POLICIAL INCREMENTADA (Mantiene la patrulla más atrás) */
     let copDistance = 340; 
     let targetCopDistance = 280; 
     let copMoveTimer = 0;
@@ -1461,7 +1755,7 @@
     const FIVE_SECONDS_FRAMES = 250;
 
     let level = 1;
-    const MAX_LEVELS = 3;
+    const MAX_LEVELS = 5;
     let gameSpeed = 6;
     
     let transitionTimer = 0;
@@ -1500,12 +1794,28 @@
         badgeType: 'cnp'
       },
       { 
-        name: 'GUARDIA CIVIL / GAR', 
-        subtitle: 'GRUPO DE ACCIÓN RÁPIDA (MÁXIMA DIFICULTAD)',
+        name: 'GUARDIA CIVIL', 
+        subtitle: 'AGRUPACIÓN DE TRÁFICO - AUTOVÍA A-42',
+        color: '#10b981', 
+        bodyColor: '#064e3b', 
+        text: 'GC',
+        badgeType: 'gc'
+      },
+      { 
+        name: 'GAR - GRUPO DE ACCIÓN RÁPIDA', 
+        subtitle: 'NOCHE DE TORMENTA Y MÁXIMA TENSION',
         color: '#ff0055', 
-        bodyColor: '#1a1a1a', 
+        bodyColor: '#111827', 
         text: 'GAR',
         badgeType: 'gar'
+      },
+      { 
+        name: 'HELICÓPTERO PEGASO DGT', 
+        subtitle: 'PERSECUCIÓN AÉREA EXTREMA FINAL',
+        color: '#f59e0b', 
+        bodyColor: '#78350f', 
+        text: 'DGT',
+        badgeType: 'pegaso'
       }
     ];
 
@@ -1548,7 +1858,13 @@
 
     function getLevelDistances() {
       const finalDist = gameConfig.targetDistance;
-      return [Math.floor(finalDist * 0.3), Math.floor(finalDist * 0.6), finalDist];
+      return [
+        Math.floor(finalDist * 0.2),
+        Math.floor(finalDist * 0.4),
+        Math.floor(finalDist * 0.6),
+        Math.floor(finalDist * 0.8),
+        finalDist
+      ];
     }
 
     function startGame() {
@@ -1566,7 +1882,7 @@
       targetCopDistance = 280; 
       copMoveTimer = 0;
       elapsedFrames = 0; 
-      gameSpeed = 6 + (level - 1) * 1.5; 
+      gameSpeed = 6 + (level - 1) * 1.2; 
       isTransitioning = false; 
       transitionTimer = 0; 
       winGame = false;
@@ -1611,10 +1927,10 @@
         }
       }
 
-      gameSpeed = 6 + (level - 1) * 1.5 + (distanceCovered / 4000);
+      gameSpeed = 6 + (level - 1) * 1.2 + (distanceCovered / 5000);
 
-      const dropSpeed = 1.1; 
-      const liftSpeed = 0.85; 
+      const dropSpeed = selectedBike.drop; 
+      const liftSpeed = selectedBike.lift; 
 
       if (isPressing) angle += liftSpeed;
       else angle -= dropSpeed;
@@ -1628,8 +1944,8 @@
       });
 
       if (!isTransitioning && elapsedFrames > FIVE_SECONDS_FRAMES) {
-        const spawnRate = Math.max(80, 200 - level * 30);
-        if (elapsedFrames % spawnRate === 0 && trafficCars.length < 3) {
+        const spawnRate = Math.max(60, 180 - level * 25);
+        if (elapsedFrames % spawnRate === 0 && trafficCars.length < 4) {
           const carColors = ['#dc2626', '#2563eb', '#475569', '#d97706'];
           trafficCars.push({ x: canvas.width + 50, color: carColors[Math.floor(Math.random() * carColors.length)] });
         }
@@ -1663,7 +1979,6 @@
       if (elapsedFrames > FIVE_SECONDS_FRAMES && !isTransitioning) {
         copMoveTimer--;
         if (copMoveTimer <= 0) {
-          /* RANGO DE DISTANCIA AUMENTADO (De 200m a 320m) */
           targetCopDistance = Math.floor(Math.random() * 120 + 200);
           copMoveTimer = Math.floor(Math.random() * 70 + 40);
         }
@@ -1671,13 +1986,12 @@
         if (copDistance < targetCopDistance) copDistance += 0.8;
         else if (copDistance > targetCopDistance) copDistance -= 0.8;
 
-        if (angle > 20 && angle < 65) {
+        if (angle > 20 && angle < selectedBike.maxAngle) {
           copDistance += 0.4;
         } else {
           copDistance -= (0.8 + level * 0.15);
         }
 
-        /* LÍMITE DE CAPTURA REDUCIDO Y AJUSTADO A MÁS DISTANCIA SENSORIAL */
         if (copDistance <= 80) {
           gameOver(`¡DETENIDO EN EL NIVEL ${level}! LA POLICÍA TE HA ATRAPADO`);
           return;
@@ -1691,8 +2005,8 @@
         return; 
       }
       if (angle < 0) angle = 0;
-      if (angle > 80) { 
-        gameOver("¡VOLTERETA HACIA ATRÁS!"); 
+      if (angle > selectedBike.maxAngle) { 
+        gameOver(`¡VOLTERETA CON TU ${selectedBike.name.toUpperCase()}!`); 
         return; 
       }
 
@@ -1726,11 +2040,19 @@
         drawPixelRect(-20, -25, 40, 50, '#00f0ff');
         drawPixelRect(-12, -15, 24, 24, '#ffffff');
         drawPixelRect(-6, 12, 12, 8, '#ff0055');
+      } else if (type === 'gc') {
+        drawPixelRect(-25, -30, 50, 60, '#064e3b');
+        drawPixelRect(-20, -25, 40, 50, '#10b981');
+        drawPixelRect(-12, -15, 24, 24, '#ffffff');
       } else if (type === 'gar') {
         drawPixelRect(-25, -30, 50, 60, '#111827');
-        drawPixelRect(-20, -25, 40, 50, '#047857');
+        drawPixelRect(-20, -25, 40, 50, '#ff0055');
         drawPixelRect(-5, -20, 10, 40, '#f59e0b');
         drawPixelRect(-15, -5, 30, 10, '#f59e0b');
+      } else if (type === 'pegaso') {
+        drawPixelRect(-25, -30, 50, 60, '#78350f');
+        drawPixelRect(-20, -25, 40, 50, '#f59e0b');
+        drawPixelRect(-15, -10, 30, 20, '#000000');
       }
 
       ctx.restore();
@@ -1746,7 +2068,9 @@
       }
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#06060e'; ctx.fillRect(0, 0, canvas.width, 270);
+      
+      ctx.fillStyle = level === 4 ? '#020208' : '#06060e'; 
+      ctx.fillRect(0, 0, canvas.width, 270);
 
       scenery.forEach(item => {
         if (item.type === 'catedral') {
@@ -1790,23 +2114,33 @@
       });
 
       if (elapsedFrames > FIVE_SECONDS_FRAMES && !isTransitioning && !winGame) {
-        const copX = 340 - copDistance; const copY = 225;
+        const copX = 340 - copDistance; 
         const div = policeDivisions[level - 1];
 
-        drawPixelRect(copX, copY + 20, 125, 38, div.bodyColor);
-        drawPixelRect(copX, copY + 32, 125, 12, div.color);
-        drawPixelRect(copX + 30, copY + 8, 65, 15, '#0f172a');
+        if (level === 5) {
+          const copY = 90 + Math.sin(elapsedFrames * 0.1) * 10;
+          drawPixelRect(copX, copY, 110, 35, div.bodyColor);
+          drawPixelRect(copX - 30, copY + 10, 40, 10, '#000');
+          drawPixelRect(copX + 30, copY - 10, 80, 5, '#fff'); 
+          ctx.fillStyle = '#ff0055';
+          ctx.beginPath(); ctx.arc(copX + 100, copY + 30, 20, 0, Math.PI * 2); ctx.fill(); 
+        } else {
+          const copY = 225;
+          drawPixelRect(copX, copY + 20, 125, 38, div.bodyColor);
+          drawPixelRect(copX, copY + 32, 125, 12, div.color);
+          drawPixelRect(copX + 30, copY + 8, 65, 15, '#0f172a');
 
-        ctx.fillStyle = '#fff';
-        ctx.font = 'bold 9px Plus Jakarta Sans';
-        ctx.fillText(div.text, copX + 45, copY + 41);
+          ctx.fillStyle = '#fff';
+          ctx.font = 'bold 9px Plus Jakarta Sans';
+          ctx.fillText(div.text, copX + 45, copY + 41);
 
-        ctx.fillStyle = '#000';
-        ctx.beginPath(); ctx.arc(copX + 28, copY + 58, 11, 0, Math.PI * 2); ctx.fill();
-        ctx.beginPath(); ctx.arc(copX + 98, copY + 58, 11, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = '#000';
+          ctx.beginPath(); ctx.arc(copX + 28, copY + 58, 11, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.arc(copX + 98, copY + 58, 11, 0, Math.PI * 2); ctx.fill();
 
-        ctx.fillStyle = (Math.floor(elapsedFrames / 10) % 2 === 0) ? '#ff0055' : '#00f0ff';
-        ctx.fillRect(copX + 50, copY + 2, 25, 6);
+          ctx.fillStyle = (Math.floor(elapsedFrames / 10) % 2 === 0) ? '#ff0055' : '#00f0ff';
+          ctx.fillRect(copX + 50, copY + 2, 25, 6);
+        }
       }
 
       ctx.save();
@@ -1817,9 +2151,9 @@
       ctx.beginPath(); ctx.arc(0, -18, 18, 0, Math.PI * 2); ctx.fill();
       ctx.beginPath(); ctx.arc(90, -18, 18, 0, Math.PI * 2); ctx.fill();
 
-      ctx.strokeStyle = '#00f0ff'; ctx.lineWidth = 4;
+      ctx.strokeStyle = selectedBike.color; ctx.lineWidth = 4;
       ctx.beginPath(); ctx.moveTo(0, -18); ctx.lineTo(45, -45); ctx.lineTo(90, -18); ctx.stroke();
-      drawPixelRect(25, -42, 30, 12, '#ff0055');
+      drawPixelRect(25, -42, 30, 12, selectedBike.color);
 
       drawPixelRect(18, -58, 24, 28, '#0b0b0e');
       ctx.fillStyle = '#111116';
@@ -1830,8 +2164,8 @@
 
       const levelDists = getLevelDistances();
       const targetDist = levelDists[level - 1];
-      ctx.fillStyle = '#ffffff'; ctx.font = '900 16px Oswald';
-      ctx.fillText(`NIVEL ${level}/${MAX_LEVELS} | DISTANCIA: ${distanceCovered}m / ${targetDist}m | VEL: ${Math.floor(gameSpeed * 10)} KM/H`, 20, 30);
+      ctx.fillStyle = '#ffffff'; ctx.font = '900 15px Oswald';
+      ctx.fillText(`MOTO: ${selectedBike.name} | NIVEL ${level}/${MAX_LEVELS} | ${distanceCovered}m / ${targetDist}m`, 20, 30);
 
       if (isTransitioning) {
         const div = policeDivisions[level - 1];
@@ -1866,11 +2200,11 @@
         ctx.strokeRect(100, 60, 600, 240);
 
         ctx.fillStyle = '#00f0ff'; ctx.font = '900 32px Oswald'; ctx.textAlign = 'center';
-        ctx.fillText('¡TODOS LOS NIVELES SUPERADOS! 🏆', 400, 120);
+        ctx.fillText('¡COMPLETADO CON ÉXITO! 🏆', 400, 120);
         ctx.fillStyle = '#ffffff'; ctx.font = '16px Plus Jakarta Sans';
-        ctx.fillText('Has completado el recorrido completo por Toledo sin caer ni ser capturado.', 400, 165);
+        ctx.fillText(`Has superado los 5 niveles con tu ${selectedBike.name}.`, 400, 165);
         ctx.fillStyle = '#ff0055'; ctx.font = 'bold 24px Oswald';
-        ctx.fillText(`${gameConfig.discountPercent}% DE DESCUENTO DESBLOQUEADO CON ÉXITO`, 400, 220);
+        ctx.fillText(`${gameConfig.discountPercent}% DE DESCUENTO DESBLOQUEADO`, 400, 220);
         ctx.textAlign = 'left';
       }
 
